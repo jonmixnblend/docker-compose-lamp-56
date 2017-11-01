@@ -1,8 +1,10 @@
-# docker-compose-lamp-56
+# Docker compose manifest for php 5.6.3, apache, mysql, phpmyadmin
 
-A docker compose manifest for a LAMP stack running php 5.6.3, Apache, and MySQL, with phpmyadmin, for quick and easy testing of apps that need this stack to run.
+A docker compose manifest for a stack running php 5.6.3, Apache, and MySQL, with phpmyadmin, for quick and easy testing of apps that need this stack to run.
 
 This is just a skeleton docker compose manifest that I use a lot on a Mac running Docker Tools.
+
+## Setup
 
 First run copyfiles.sh. Edit the newly created docker-compose.yml, changing anything you would like, including adding any self generated ssl keys to the 
 relevant mount points.
