@@ -21,4 +21,4 @@ Edit your /etc/hosts file on your machine to point the relevant development doma
 
 As far as MYSQL goes, there is only one database that is created initially, but that can quickly be changed, through say phpmyadmin as all data is stored in the folder .data/db, created off this directory.
 
-phpmyadmin is available at the machines ip on port 8080. The password and root password as well as the db that is to be used can be set in docker-compose.yml
+phpmyadmin is available at the docker machines ip on port 8080. The password and root password as well as the db that is to be used can be set in docker-compose.yml

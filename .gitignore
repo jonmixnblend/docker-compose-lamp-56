@@ -1,2 +1,5 @@
 # mysql data folder for docker
 .data
+
+# docker-compose file
+docker-compose.yml
