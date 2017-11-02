@@ -24,7 +24,7 @@ services:
        - ./docker-config-files/mysql/localdb-run.sh:/localdb-run.sh
        - "./.data/db:/var/lib/mysql"
        - ./docker-config-files/mysql/custom-conf:/etc/mysql/conf.d
-       - ./:/var/www
+       - ./www:/var/www/html
     environment:
       - MYSQL_ROOT_PASSWORD=mypassword
       - MYSQL_DATABASE=mypassword
