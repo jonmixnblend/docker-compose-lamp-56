@@ -9,7 +9,6 @@
 # The Apache 2 web server configuration in Debian is quite different to
 # upstream's suggested way to configure the web server. This is because Debian's
 # default Apache2 installation attempts to make adding and removing modules,
-# virtual hosts, and extra configuration directives as flexible as possible, in
 # order to make automating the changes and administering the server as easy as
 # possible.
 
@@ -51,6 +50,8 @@
 #   /etc/init.d/apache2 or apache2ctl. Calling /usr/bin/apache2 directly will not
 #   work with the default configuration.
 
+# Server Name
+ServerName localhost
 
 # Global configuration
 #
@@ -71,7 +72,7 @@
 #
 # The accept serialization lock file MUST BE STORED ON A LOCAL DISK.
 #
-Mutex file:${APACHE_LOCK_DIR} default
+#Mutex file:${APACHE_LOCK_DIR} default
 
 #
 # PidFile: The file in which the server should record its process
@@ -216,6 +217,6 @@ LogFormat "%{User-agent}i" agent
 IncludeOptional conf-enabled/*.conf
 
 # Include the virtual host configurations:
-IncludeOptional sites-enabled/*.conf
+IncludeOptional sites-enabled/*.*
 
 # vim: syntax=apache ts=4 sw=4 sts=4 sr noet
