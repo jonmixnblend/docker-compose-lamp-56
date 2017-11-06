@@ -1,7 +1,9 @@
 version: '2'
 services:
   apache:
-    image: php:5.6.32-apache
+    build:
+      context: ./dockerfiles/apache/
+      dockerfile: Dockerfile
     container_name: my_apache_php_container_name
     ports:
       - "80:80"
