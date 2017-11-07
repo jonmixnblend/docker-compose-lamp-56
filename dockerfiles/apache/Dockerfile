@@ -1,7 +1,19 @@
-FROM php:5.6.32-apache
+FROM php:7.0.25-apache
+
+# Install lib xml
+RUN apt-get update && apt-get install -y \
+        libxml2-dev \
+        libxslt1-dev \
+        zlib1g-dev \
+        libicu-dev \
+        g++
+
+# Install intl
+RUN docker-php-ext-configure intl
+RUN docker-php-ext-install intl
 
 ## Install Mysql Support
-RUN docker-php-ext-install pdo pdo_mysql
+RUN docker-php-ext-install pdo pdo_mysql xsl soap zip
 
 ## Install libfreetype, mcrypt, gd with freetype support
 RUN apt-get update && apt-get install -y \
@@ -13,18 +25,6 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd
 
-## Install Redis and Xdebug
-RUN pecl install redis-3.1.0 \
-    && pecl install xdebug-2.5.0 \
-    && docker-php-ext-enable redis xdebug
-
-## Install Memcached
-RUN apt-get update && apt-get install -y libmemcached-dev zlib1g-dev \
-    && pecl install memcached-2.2.0 \
-    && docker-php-ext-enable memcached
-
-## Enable SSL
-RUN a2enmod ssl
 
 # Enable Mod Rewrite
 RUN a2enmod rewrite
